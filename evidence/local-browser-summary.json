@@ -1,0 +1,32 @@
+{
+  "screens": [
+    {
+      "width": 320,
+      "height": 844,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "height": 844,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "horizontal_overflow": false
+    }
+  ],
+  "javascript_disabled": true,
+  "api_requests": 0,
+  "external_requests": 0,
+  "console_errors": 0,
+  "keyboard": true,
+  "text_contrast": true,
+  "subpath": true,
+  "passed": true
+}
