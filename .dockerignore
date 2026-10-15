@@ -1,0 +1,8 @@
+.git
+.env
+.env.*
+node_modules
+artifacts
+.local
+evidence
+__pycache__
