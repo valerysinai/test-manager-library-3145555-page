@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 500" fill="none">
+  <rect x="27" y="18" width="506" height="452" rx="220" fill="#E7EBDD"/>
+  <circle cx="438" cy="104" r="27" fill="#E6B979"/><path d="M438 62V52m0 104v-10m42-42h10m-104 0h10m72-30 7-7m-74 74 7-7m60 0 7 7m-74-74 7 7" stroke="#9B7844" stroke-width="1.5"/>
+  <path d="M77 433h405" stroke="#8B967C" stroke-width="2"/>
+  <path d="M112 194h333v15H112z" fill="#AF8051"/><path d="M126 209v21m305-21v21" stroke="#805F3E" stroke-width="9"/>
+  <g transform="translate(139 69)"><rect width="44" height="125" rx="4" fill="#617453"/><path d="M7 12h30M7 112h30" stroke="#D9DCC6"/><text x="27" y="28" transform="rotate(90 27 28)" font-family="Georgia,serif" font-size="12" letter-spacing="2" fill="#F6F4EC">NOVELA</text></g>
+  <g transform="translate(188 85)"><rect width="35" height="109" rx="3" fill="#CE8F57"/><path d="M6 10h23M6 98h23" stroke="#F8E9CC"/><text x="22" y="23" transform="rotate(90 22 23)" font-family="Arial,sans-serif" font-size="10" letter-spacing="1.5" fill="#263B30">CIENCIA</text></g>
+  <g transform="translate(232 75) rotate(-10 20 120)"><rect width="43" height="120" rx="4" fill="#D9C9A1"/><path d="M6 10h31M6 108h31" stroke="#8C7B56"/><text x="27" y="24" transform="rotate(90 27 24)" font-family="Arial,sans-serif" font-size="10" letter-spacing="1.2" fill="#263B30">HISTORIA</text></g>
+  <path d="M328 193v-38m0 19c-22 0-31-14-30-30 23 1 31 14 30 30Zm0-10c22 0 31-14 30-30-23 1-31 14-30 30Z" fill="#6C815B" stroke="#526743" stroke-width="2"/><path d="M311 177h35l-5 16h-25l-5-16Z" fill="#C98755"/>
+  <path d="M112 365h333v15H112z" fill="#AF8051"/><path d="M126 380v22m305-22v22" stroke="#805F3E" stroke-width="9"/>
+  <g transform="translate(138 242)"><rect width="45" height="123" rx="4" fill="#536B70"/><path d="M7 12h31M7 111h31" stroke="#CAD6CB"/><text x="28" y="18" transform="rotate(90 28 18)" font-family="Arial,sans-serif" font-size="10" letter-spacing="1.1" fill="#F6F4EC">TECNOLOGÍA</text></g>
+  <g transform="translate(189 259)"><rect width="35" height="106" rx="3" fill="#D5AF69"/><path d="M6 10h23M6 95h23" stroke="#8A683D"/><text x="23" y="20" transform="rotate(90 23 20)" font-family="Georgia,serif" font-size="11" letter-spacing="1" fill="#263B30">INFANTIL</text></g>
+  <g transform="translate(239 345)"><rect width="105" height="20" rx="3" fill="#879578"/><path d="M10 6h88m-88 5h88" stroke="#EAE8DB" stroke-width="2"/><path d="M90 0v20" stroke="#5C704D" stroke-width="5"/></g>
+  <g transform="translate(247 322)"><rect width="91" height="20" rx="3" fill="#C98755"/><path d="M8 6h76m-76 5h76" stroke="#F5E5C9" stroke-width="2"/><path d="M12 0v20" stroke="#9B623C" stroke-width="5"/></g>
+  <path d="M389 364v-57m0 19c-22-2-33-18-28-38 24 4 32 19 28 38Zm0 14c25-2 37-19 32-40-26 4-35 21-32 40Z" fill="#7D8D63" stroke="#61734E" stroke-width="2"/><path d="M369 339h40l-6 25h-28l-6-25Z" fill="#E1B88A"/>
+  <path d="M70 265c-5 10-11 16-22 18 11 2 17 8 22 18 2-10 8-16 18-18-10-2-16-8-18-18Z" fill="#C6A46B"/>
+  <path d="M465 252c-3 6-7 10-13 11 6 2 10 6 13 12 1-6 5-10 11-12-6-1-10-5-11-11Z" fill="#8E9B7C"/>
+</svg>
