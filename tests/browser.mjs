@@ -7,7 +7,7 @@ import {createStaticServer} from '../scripts/serve.mjs';
 
 const server=createStaticServer(undefined,'/library/');let browser;let stage='startup';
 const artifacts=new URL('../artifacts/',import.meta.url);mkdirSync(artifacts,{recursive:true});
-const summary={screens:[],javascript_disabled:true,api_requests:0,external_requests:0,console_errors:0,keyboard:false,subpath:true,passed:false};
+const summary={screens:[],javascript_disabled:true,api_requests:0,external_requests:0,console_errors:0,keyboard:false,text_contrast:false,subpath:true,passed:false};
 try{
   server.listen(0,'127.0.0.1');await once(server,'listening');const base=`http://127.0.0.1:${server.address().port}`;
   browser=await chromium.launch({headless:true,args:['--disable-background-networking']});
@@ -21,6 +21,16 @@ try{
     assert.equal(await page.locator('script,form,iframe,input,button').count(),0);
     assert.equal(await page.locator('img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0)),true);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    const contrastPassed=await page.evaluate(()=>{
+      const rgb=color=>(color.match(/[\d.]+/g)||[]).slice(0,3).map(Number);
+      const luminance=color=>rgb(color).map(n=>{const s=n/255;return s<=.04045?s/12.92:((s+.055)/1.055)**2.4;}).reduce((sum,n,i)=>sum+n*[.2126,.7152,.0722][i],0);
+      return [...document.querySelectorAll('h1,h2,h3,p,em,figcaption,.role-label,nav a,.button,.text-link')].every(element=>{
+        const style=getComputedStyle(element);if(style.display==='none')return true;let parent=element,background;
+        while(parent){const value=getComputedStyle(parent).backgroundColor;if(value!=='rgba(0, 0, 0, 0)'&&value!=='transparent'){background=value;break;}parent=parent.parentElement;}
+        const fg=luminance(style.color),bg=luminance(background||'rgb(255,255,255)');const ratio=(Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05);
+        const large=parseFloat(style.fontSize)>=24||(parseFloat(style.fontSize)>=18.66&&parseInt(style.fontWeight,10)>=700);return ratio>=(large?3:4.5);
+      });
+    });assert.equal(contrastPassed,true);summary.text_contrast=true;
     for(const id of ['sistema','recorrido','proyecto']){
       await page.getByRole('navigation').locator(`a[href="#${id}"]`).click();assert.equal(new URL(page.url()).hash,'#'+id);assert.equal(await page.locator('#'+id).isVisible(),true);
     }
@@ -32,7 +42,7 @@ try{
     const outline=await page.locator('.skip-link').evaluate(element=>({style:getComputedStyle(element).outlineStyle,width:parseFloat(getComputedStyle(element).outlineWidth)}));assert.notEqual(outline.style,'none');assert.ok(outline.width>=2);
     await page.keyboard.press('Enter');assert.equal(await page.evaluate(()=>document.activeElement.id),'contenido');summary.keyboard=true;
     await page.goto(base+'/library/',{waitUntil:'networkidle'});
-    if(width===390||width===1440)await page.screenshot({path:fileURLToPath(new URL(width===390?'mobile.png':'desktop.png',artifacts)),fullPage:true,animations:'disabled'});
+    if(width===390||width===1440){const name=width===390?'mobile':'desktop';await page.screenshot({path:fileURLToPath(new URL(name+'.png',artifacts)),fullPage:true,animations:'disabled'});await page.screenshot({path:fileURLToPath(new URL(name+'-viewport.png',artifacts)),animations:'disabled'});}
     assert.equal(problems.length,0);summary.screens.push({width,height:width===1440?1000:844,horizontal_overflow:false});await context.close();
   }
   stage='javascript-enabled';const context=await browser.newContext();const page=await context.newPage();await page.goto(base+'/library/');assert.match(await page.title(),/Manager Library/);assert.equal(await page.locator('script').count(),0);await context.close();
